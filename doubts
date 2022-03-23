@@ -1,0 +1,67 @@
+1. s3---> from backend or frontend (s3 signed url)
+2. authentication ()
+3. folder structure here vs services(company)
+4. tests-->chai or mocha
+5. postgreSql vs mongodb  -->example
+5. docker and tests
+
+users = [
+    {
+        id: 1,
+        name: "amit",
+        email: "amit@growthschool.io",
+        cohorts: [1,2]
+    },
+    {
+        id: 2,
+        name: "ambhinav",
+        email: "abhinav@growthschool.io",
+        cohorts: [1]
+    },
+    {
+        id: 3,
+        name: "manu",
+        email: "manu@growthschool.io",
+        cohorts: [1,2,3,4]
+    }
+]
+
+
+
+------------------------------------------------------------
+In Mongo hell
+------------------------------------------------------------
+"Add manu to cohort 5"
+"Remove manu from cohort 1"
+
+10:00:01  POST /cohorts/update/3/1,2,3,4,5    10:00:04
+10:00:02  POST /cohorts/update/3/2,3,4        10:00:05
+
+
+
+
+------------------------------------------------------------
+In Postgresql heaven
+------------------------------------------------------------
+
+"Add manu to cohort 5"
+"Remove manu from cohort 1"
+
+10:00:01  POST /cohorts/add/3/5    10:00:04
+10:00:02  POST /cohorts/rem/3/1    10:00:05
+
+
+users                              cohorts
+------------                       -----------------------
+id,     name                       id,     userId,    cohortId
+1       amit                       1       1          1
+2       abhinav                    2       1          2
+3       manu                       3       2          1
+                                   4       3          2
+                                   4       3          3
+                                   4       3          4
+                                   4       3          5
+
+
+//next steps 
+
